@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generátor QR kódů</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <h1>Generátor QR kódů</h1>
+    <input type="text" id="text" placeholder="Zadej text pro QR kód">
+    <button onclick="generateQRCode()">Generovat QR kód</button>
+    <div id="qrcode"></div>
+
+    <script>
+        function generateQRCode() {
+            var text = document.getElementById("text").value;
+            var qrcodeContainer = document.getElementById("qrcode");
+            qrcodeContainer.innerHTML = "";  // Vymazat předchozí QR kód
+            var qrcode = new QRCode(qrcodeContainer, {
+                text: text,
+                width: 128,
+                height: 128
+            });
+        }
+    </script>
+</body>
+</html>
